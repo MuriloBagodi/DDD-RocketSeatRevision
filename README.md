@@ -12,3 +12,10 @@ Caso de uso:
 - Resposta
 
 
+
+## Clean Architecture
+- desacoplamento entre a camada de negocio e a camada de apresentação
+- camada de negocio é responsável por realizar as operações de negocio
+- camada de apresentação é responsável por apresentar as informações para o usuário
+
+
