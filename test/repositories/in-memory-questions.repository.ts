@@ -5,6 +5,19 @@ import type { QuestionRepository } from "@/domain/forum/application/repositories
 export class InMemoryQuestionRepository implements QuestionRepository {
   public items: Question[] = []
 
+  async save(question: Question) {
+    const existQuestionIndex = this.items.findIndex((item) => item.id === question.id)
+
+    if (existQuestionIndex >= 0) {
+      this.items[existQuestionIndex] = question
+    } else {
+      this.items.push(question)
+    }
+
+    return question
+  }
+
+
   async findBySlug(slug: string) {
     const question = this.items.find((item) => item.slug.value === slug)
 
