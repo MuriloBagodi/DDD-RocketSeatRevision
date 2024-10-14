@@ -1,9 +1,7 @@
-import { beforeEach, expect, it, test } from 'vitest'
-import { describe } from 'node:test'
-import { InMemoryQuestionRepository } from 'test/repositories/in-memory-questions.repository'
-import { CreateQuestionUseCase } from './create-question'
-import { AnswerQuestionUseCase } from './answer-question'
-import { InMemoryAnswerRepository } from 'test/repositories/in-memory-answer.repository copy'
+import { InMemoryAnswerRepository } from "test/repositories/in-memory-answer.repository"
+import { describe, beforeEach, it, expect } from "vitest"
+import { AnswerQuestionUseCase } from "./answer-question"
+
 
 let inMemoryAnswerRepository: InMemoryAnswerRepository
 let sut: AnswerQuestionUseCase

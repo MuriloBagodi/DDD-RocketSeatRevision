@@ -2,7 +2,7 @@ import { InMemoryQuestionRepository } from "test/repositories/in-memory-question
 import { describe, beforeEach, it, expect } from "vitest"
 import { makeQuestion } from "test/factories/make-question"
 import { UniqueEntityId } from "@/core/entities/unique-entity-id"
-import { DeleteQuestionUseCase } from "./delete-question."
+import { DeleteQuestionUseCase } from "./delete-question"
 
 
 let inMemoryQuestionRepository: InMemoryQuestionRepository
@@ -42,7 +42,6 @@ describe("Delete Question Use Case", () => {
     }).rejects.toBeInstanceOf(Error)
 
     expect(inMemoryQuestionRepository).toHaveLength(1)
-
   })
 
 })
