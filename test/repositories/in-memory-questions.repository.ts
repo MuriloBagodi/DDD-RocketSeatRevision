@@ -34,8 +34,10 @@ export class InMemoryQuestionRepository implements QuestionRepository {
 
     return question
   }
-  async create(question: Question): Promise<void> {
+  async create(question: Question) {
     this.items.push(question)
+
+    return question
   }
 
   async findById(id: string) {
