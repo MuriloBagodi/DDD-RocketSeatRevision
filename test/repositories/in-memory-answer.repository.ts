@@ -4,6 +4,18 @@ import type { Answer } from "@/domain/forum/enterprise/entities/answer"
 export class InMemoryAnswerRepository implements AnswerRepository {
   public items: Answer[] = []
 
+  async save(answer: Answer) {
+    const exitAnswerItemIndex = this.items.findIndex((item) => item.id === answer.id)
+
+    if (exitAnswerItemIndex >= 0) {
+      this.items[exitAnswerItemIndex] = answer
+    } else {
+      this.items.push(answer)
+    }
+
+    return answer
+  }
+
   async delete(answer: Answer) {
     const itemIndex = this.items.findIndex((item) => item.id === answer.id)
 
