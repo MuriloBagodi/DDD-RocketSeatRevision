@@ -1,9 +1,16 @@
 import type { Question } from './../../src/domain/forum/enterprise/entities/question';
 import type { UniqueEntityId } from "@/core/entities/unique-entity-id";
+import type { PaginationParams } from '@/core/repositories/pagination-params';
 import type { QuestionRepository } from "@/domain/forum/application/repositories/questions-repository";
 
 export class InMemoryQuestionRepository implements QuestionRepository {
   public items: Question[] = []
+
+  async findManyRecent({ page }: PaginationParams) {
+    const questions = this.items.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).slice((page - 1) * 20, page * 20)
+
+    return questions
+  }
 
   async save(question: Question) {
     const existQuestionIndex = this.items.findIndex((item) => item.id === question.id)

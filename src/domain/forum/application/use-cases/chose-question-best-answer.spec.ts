@@ -2,13 +2,9 @@ import { InMemoryQuestionRepository } from "test/repositories/in-memory-question
 import { describe, beforeEach, it, expect } from "vitest"
 import { makeQuestion } from "test/factories/make-question"
 import { UniqueEntityId } from "@/core/entities/unique-entity-id"
-import { DeleteQuestionUseCase } from "./delete-question"
 import { InMemoryAnswerRepository } from "test/repositories/in-memory-answer.repository"
 import { ChoseQuestionBestAnswerUseCase } from "./chose-question-best-answer"
 import { makeAnswer } from "test/factories/make-answer"
-import { Q } from "@faker-js/faker/dist/airline-C5Qwd7_q"
-import exp from "constants"
-
 
 let inMemoryQuestionRepository: InMemoryQuestionRepository
 let inMemoryAnswerRepository: InMemoryAnswerRepository
